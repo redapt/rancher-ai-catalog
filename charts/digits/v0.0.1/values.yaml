@@ -115,10 +115,12 @@ persistence:
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
 ##
 resources:
+  limits:
+    nvidia.com/gpu: 1
   requests:
     memory: 512Mi
     cpu: 300m
-    nvidia/gpu: 1
+    nvidia.com/gpu: 1
 
 ## Node labels for pod assignment
 ## Ref: https://kubernetes.io/docs/user-guide/node-selection/

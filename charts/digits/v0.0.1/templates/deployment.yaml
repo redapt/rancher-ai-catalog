@@ -22,7 +22,7 @@ spec:
       {{- end }}
       containers:
       - name: {{ template "fullname" . }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
         ports:
         - name: http
@@ -52,7 +52,7 @@ spec:
         volumeMounts:
         - mountPath: /workspace/jobs
           name: digits-data
-          subPath: ???
+          subPath: data
         resources:
 {{ toYaml .Values.resources | indent 10 }}
       volumes:
