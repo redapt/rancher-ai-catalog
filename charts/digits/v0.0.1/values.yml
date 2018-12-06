@@ -2,7 +2,7 @@
 ## ref: https://github.com/NVIDIA/DIGITS/tags
 ##
 image:
-  # registry: nvcr.io
+  registry: nvcr.io
   repository: nvidia/digits
   tag: 18.11-tensorflow
   ## Specify a imagePullPolicy
