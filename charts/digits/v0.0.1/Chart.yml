@@ -1,0 +1,16 @@
+apiVersion: v1
+name: digits
+version: 0.0.1
+description: Deploy NVIDIA DIGITS
+keywords:
+- DIGITS
+- GPU
+- NVIDIA
+- MachineLearning
+- ML
+home: https://github.com/NVIDIA/DIGITS
+icon: https://static.nvidiagrid.net/ngc/containers/digits.png
+maintainers:
+- name: Paul Welch
+  email: paulw@redapt.com
+engine: gotpl
