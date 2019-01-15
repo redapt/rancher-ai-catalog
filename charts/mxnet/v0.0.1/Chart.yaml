@@ -1,0 +1,17 @@
+apiVersion: v1
+name: mxnet
+version: 0.0.1
+description: Deploy NVIDIA's Apache mxnet package
+keywords:
+- mxnet
+- Apache
+- GPU
+- NVIDIA
+- MachineLearning
+- ML
+home: https://github.com/dmlc/mxnet
+icon: https://static.nvidiagrid.net/ngc/containers/mxnet-logo-light.png
+maintainers:
+- name: Paul Welch
+  email: paulw@redapt.com
+engine: gotpl

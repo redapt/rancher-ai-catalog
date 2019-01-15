@@ -1,0 +1,95 @@
+categories:
+- ML
+- GPU
+questions:
+- variable: defaultImage
+  default: "true"
+  description: "Use default Docker image"
+  label: Use Default Image
+  type: boolean
+  show_subquestion_if: false
+  group: "Container Images"
+  subquestions:
+  - variable: image.registry
+    default: "nvcr.io"
+    description: "mxnet Image Registry"
+    type: string
+    label: mxnet Image Registry
+  - variable: image.repository
+    default: "nvidia/mxnet"
+    description: "mxnet image name"
+    type: string
+    label: mxnet Image Name
+  - variable: image.tag
+    default: "1.18.12-py3"
+    description: "mxnet image tag"
+    type: string
+    label: Image Tag
+- variable: persistence.enabled
+  default: "false"
+  description: "Enable persistent volume for mxnet"
+  type: boolean
+  required: true
+  label: mxnet Persistent Volume Enabled
+  show_subquestion_if: true
+  group: "mxnet Settings"
+  subquestions:
+  - variable: persistence.size
+    default: "10Gi"
+    description: "mxnet Persistent Volume Size"
+    type: string
+    label: mxnet Volume Size
+  - variable: persistence.storageClass
+    default: ""
+    description: "If undefined or null, uses the default StorageClass. Default to null"
+    type: storageclass
+    label: Default StorageClass for mxnet
+  - variable: persistence.existingClaim
+    default: ""
+    description: "If not empty, uses the specified existing PVC instead of creating new one"
+    type: string
+    label: Existing Persistent Volume Claim for mxnet
+- variable: serviceType
+  default: "NodePort"
+  description: "mxnet Service type"
+  type: enum
+  show_if: "ingress.enabled=false"
+  options:
+    - "ClusterIP"
+    - "NodePort"
+    - "LoadBalancer"
+  required: true
+  label: mxnet Service Type
+  show_subquestion_if: "NodePort"
+  group: "Services and Load Balancing"
+  subquestions:
+  - variable: nodePorts.http
+    default: ""
+    description: "NodePort http port(to set explicitly, choose port between 30000-32767)"
+    type: int
+    min: 30000
+    max: 32767
+    show_if: "ingress.enabled=false&&serviceType=NodePort"
+    label: NodePort Http Port
+  - variable: nodePorts.https
+    default: ""
+    description: "NodePort https port(to set explicitly, choose port between 30000-32767)"
+    type: int
+    min: 30000
+    max: 32767
+    show_if: "ingress.enabled=false&&serviceType=NodePort"
+    label: NodePort Https Port
+- variable: ingress.enabled
+  default: "true"
+  description: "Expose app using Layer 7 Load Balancer - ingress"
+  type: boolean
+  label: Expose app using Layer 7 Load Balancer
+  show_subquestion_if: true
+  group: "Services and Load Balancing"
+  subquestions:
+  - variable: ingress.hosts[0].name
+    default: "xip.io"
+    description: "Hostname to your mxnet installation"
+    type: hostname
+    required: true
+    label: Hostname
