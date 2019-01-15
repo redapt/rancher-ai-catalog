@@ -1,0 +1,16 @@
+apiVersion: v1
+name: index
+version: 0.0.1
+description: Deploy NVIDIA IndeX
+keywords:
+- IndeX
+- GPU
+- NVIDIA
+- MachineLearning
+- ML
+home: https://developer.nvidia.com/index
+icon: https://static.nvidiagrid.net/ngc/containers/index.png
+maintainers:
+- name: Paul Welch
+  email: paulw@redapt.com
+engine: gotpl
