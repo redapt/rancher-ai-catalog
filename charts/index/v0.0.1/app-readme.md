@@ -1,3 +1,3 @@
-# DIGITS
+# IndeX
 
-Deploy an NVIDIA DIGITS pod
+Deploy an NVIDIA IndeX pod

@@ -51,12 +51,12 @@ spec:
 {{ toYaml .Values.readinessProbe | indent 10 }}
         volumeMounts:
         - mountPath: /workspace/jobs
-          name: digits-data
+          name: index-data
           subPath: data
         resources:
 {{ toYaml .Values.resources | indent 10 }}
       volumes:
-      - name: digits-data
+      - name: index-data
       {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
           claimName: {{ .Values.persistence.existingClaim | default (include "fullname" .) }}
