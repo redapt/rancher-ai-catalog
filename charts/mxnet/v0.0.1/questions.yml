@@ -21,7 +21,7 @@ questions:
     type: string
     label: mxnet Image Name
   - variable: image.tag
-    default: "1.18.12-py3"
+    default: "18.12-py3"
     description: "mxnet image tag"
     type: string
     label: Image Tag
